@@ -1,0 +1,76 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(100, 100, 100);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  color: rgb(123, 255, 134);
+  font-size: 128px;
+  padding: 64px;
+}
+span {
+  text-shadow: 4px 8px 18px;
+  color: rgb(80, 255, 197);
+}
+p {
+  font-size: 30px;
+  color: aliceblue;
+  padding: 64px;
+}
+
+.spanContent {
+  padding: 64px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.attackButton button {
+  font-size: large;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(80, 189, 131);
+  width: 364px;
+  height: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.decipherButton button {
+  font-size: large;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(80, 189, 131);
+  width: 364px;
+  height: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:active {
+  background-color: rgb(192, 91, 91);
+  /* transform: scale(0.95); */
+}
