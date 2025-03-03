@@ -10,6 +10,19 @@
 
   <body>
     <div class="container">
+      <h1>Battle the <span>Ghoul!</span></h1>
+      <div class="img">
+        <img src="./image/ThemeImg.webp" alt="" />
+      </div>
+      <p>A terrifying ghoul stands before you. Defeat it quickly!</p>
+
+      <div class="attackButton">
+        <button id="attackBtn">ATTACK</button>
+      </div>
+      <div class="decipherButton">
+        <button id="decipherBtn">Decipher</button>
+      </div>
+
       <div class="inventory">
         <input type="text" id="inventoryInput" />
         <button class="inventoryBtn" id="inventoryAdd">Add new item</button>
@@ -23,12 +36,6 @@
         <div id="inventory"></div>
       </div>
 
-      <h1>Battle the <span>Ghoul!</span></h1>
-      <p>A terrifying ghoul stands before you. Defeat it quickly!</p>
-
-      <div class="attackButton">
-        <button id="attackBtn">ATTACK</button>
-      </div>
       <div class="spanContent" id="tome-content">
         In <span class="shadow">shadowed</span> depths,
         <span class="cryptic">The</span> ancient
@@ -49,9 +56,14 @@
         <span class="shadow">night</span> unite in your grasp will the path to
         <span class="illusion">victory</span> be illuminated.
       </div>
-      <div class="decipherButton">
-        <button id="decipherBtn">Decipher</button>
+      <div class="questContainer">
+        <h2>Quest Log</h2>
+        <button class="nextQuestBtn" id="nextQuestBtn">Next Quest</button>
+        <ul id="questList"></ul>
       </div>
+      <p>Click under here for drescription</p>
+      <div id="locations"></div>
+      <p id="locationDescription"></p>
     </div>
   </body>
 </html>

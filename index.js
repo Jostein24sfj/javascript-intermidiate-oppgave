@@ -65,6 +65,7 @@ attackBtn.addEventListener("click", function () {
     ghoulHealth -= 10;
   } else {
     console.log("Congratulations! You have defeated the ghoul!");
+    addQuest("Battle for Ghoul", "You bravely defeated the terrifying ghoul!");
   }
   console.log("Current health of ghoul is:", ghoulHealth);
 });
@@ -93,9 +94,13 @@ function decipherMessage() {
 // console.log(decipherMessage());
 // If the message contains a special item, add it to the inventory
 decipherBtn.addEventListener("click", function () {
-  // decipherMessage();
+  let message = decipherMessage();
   if (decipherMessage().includes("ring")) {
     heroInventory.push("Ancient Ring"); // Add item to inventory
+    addQuest(
+      "Deciphered Message",
+      "You discovered the Ancient Ring hidden in the cryptic text!"
+    );
     console.log(heroInventory);
   }
 });
@@ -116,3 +121,105 @@ inventoryRemove.addEventListener("click", function () {
   heroInventory = [];
   updateInventory();
 });
+
+let questLog = ["Ancient Tome", "Deciphered message", "Misty ruins"];
+
+function addQuest(AncientTome, DiscoveringOfThe) {
+  let questEntry = `${AncientTome}: ${questSummary}`;
+  questLog.push(questEntry);
+  updateQuestLog();
+}
+
+function updateQuestLog() {
+  let questList = document.getElementById("questList");
+  questList.innerHTML = "";
+
+  questLog.forEach((quest) => {
+    let listItem = document.createElement("li");
+    listItem.textContent = quest;
+    questList.appendChild(listItem);
+  });
+}
+
+let quests = [
+  {
+    name: "Decipher the Cryptic Message",
+    event:
+      "You uncovered a hidden message revealing the location of a powerful item!",
+    reward: "Ancient Ring",
+  },
+  {
+    name: "Battle the Ghoul",
+    event: "You defeated a terrifying ghoul guarding an ancient tome.",
+    reward: "Mysterious Tome",
+  },
+  {
+    name: "Defeat Fyrebreath",
+    event:
+      "You faced the mighty dragon Fyrebreath and used your discovered item to slay it!",
+    reward: "Victory!",
+  },
+];
+let currentQuestIndex = 0;
+// let heroInventory = [];
+
+function nextQuest() {
+  if (currentQuestIndex < quests.length) {
+    let quest = quests[currentQuestIndex];
+    let questEntry = `${quest.name}: ${quest.event}`;
+    heroInventory.push(quest.reward);
+    questLog.push(questEntry);
+
+    updateQuestLog();
+    currentQuestIndex++;
+  } else {
+    console.log("All quests completed");
+  }
+}
+
+function updateQuestLog() {
+  let questList = document.getElementById("questList");
+  questList.innerHTML = "";
+
+  questLog.forEach((quest) => {
+    let listItem = document.createElement("li");
+    listItem.textContent = quest;
+    questList.appendChild(listItem);
+  });
+  console.log("Hero's Inventory:", heroInventory);
+}
+
+document.getElementById("nextQuestBtn").addEventListener("click", nextQuest);
+
+let locations = [
+  {
+    name: "Whispering Forest",
+    description: "A mystical forest where the trees seem to whisper secrets.",
+  },
+  {
+    name: "Echoing Caves",
+    description: "A dark cavern where echoes of the past reveal hidden truths.",
+  },
+  {
+    name: "Dragon's Lair",
+    description: "A fiery cavern where Fyrebreath, the ancient dragon, awaits.",
+  },
+];
+
+function createLocationButtons() {
+  let locationContainer = document.getElementById("locations");
+
+  locations.forEach((location) => {
+    let button = document.createElement("button");
+    button.textContent = location.name;
+
+    button.addEventListener("click", function () {
+      document.getElementById("locationDescription").textContent =
+        location.description;
+    });
+
+    locationContainer.appendChild(button);
+  });
+}
+
+createLocationButtons();
