@@ -10,8 +10,22 @@
 
   <body>
     <div class="container">
+      <div class="inventory">
+        <input type="text" id="inventoryInput" />
+        <button class="inventoryBtn" id="inventoryAdd">Add new item</button>
+        <button class="inventoryBtn" id="inventoryRemove">
+          Remove existing item
+        </button>
+        <button class="inventoryBtn" id="inventoryCheck">
+          Check readiness
+        </button>
+
+        <div id="inventory"></div>
+      </div>
+
       <h1>Battle the <span>Ghoul!</span></h1>
       <p>A terrifying ghoul stands before you. Defeat it quickly!</p>
+
       <div class="attackButton">
         <button id="attackBtn">ATTACK</button>
       </div>
@@ -38,7 +52,6 @@
       <div class="decipherButton">
         <button id="decipherBtn">Decipher</button>
       </div>
-      <div id="inventory"></div>
     </div>
   </body>
 </html>

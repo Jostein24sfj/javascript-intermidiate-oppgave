@@ -32,6 +32,13 @@ const ancientTomeLocation = "Echoing Caves";
 console.log(ancientTomeLocation[0]);
 let heroInventory = [];
 
+const updateInventory = () => {
+  return (document.getElementById("inventory").textContent =
+    "Inventory: " + heroInventory.join(", "));
+};
+
+updateInventory();
+
 for (let location of mysteriousLocations) {
   console.log(`Exploring: ${location}`);
 
@@ -79,8 +86,8 @@ function decipherMessage() {
     "Deciphered Message: " + message;
 
   // Display updated inventory
-  document.getElementById("inventory").textContent =
-    "Inventory: " + heroInventory.join(", ");
+  updateInventory();
+
   return message;
 }
 // console.log(decipherMessage());
@@ -91,4 +98,21 @@ decipherBtn.addEventListener("click", function () {
     heroInventory.push("Ancient Ring"); // Add item to inventory
     console.log(heroInventory);
   }
+});
+
+const inventoryInput = document.getElementById("inventoryInput");
+const inventoryAdd = document.getElementById("inventoryAdd");
+const inventoryRemove = document.getElementById("inventoryRemove");
+
+inventoryAdd.addEventListener("click", function () {
+  // console.log(inventoryInput.value);
+  heroInventory.push(inventoryInput.value); // Add item to inventory
+  updateInventory();
+
+  inventoryInput.value = "";
+});
+
+inventoryRemove.addEventListener("click", function () {
+  heroInventory = [];
+  updateInventory();
 });

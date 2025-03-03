@@ -19,10 +19,27 @@ body {
   flex-direction: column;
 }
 
+.inventory {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(123, 255, 134);
+  position: absolute;
+  top: 0;
+  padding-top: 100px;
+  gap: 8px;
+}
+
+.inventory button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 h1 {
   color: rgb(123, 255, 134);
   font-size: 128px;
-  padding: 64px;
+  padding-top: 244px;
 }
 span {
   text-shadow: 4px 8px 18px;
@@ -34,10 +51,28 @@ p {
   padding: 64px;
 }
 
+input {
+  height: 36px;
+  width: 364px;
+}
+
 .spanContent {
   padding: 64px;
   font-size: 24px;
   text-align: center;
+}
+
+.inventoryBtn {
+  font-size: large;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(80, 189, 131);
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .attackButton button {
